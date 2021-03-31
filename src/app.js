@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-unfetch'
+import 'isomorphic-unfetch'
 import './co'
 import { 
     fSignup,
@@ -796,9 +796,14 @@ function clearElement(elem) {
 
 // Save todos data to FaunaDB
 async function saveTodos() {
-    try {
+    try{
         console.warn(USER_STORE)
         console.warn({ ...getCredentials() })
+    } catch(err){
+        console.error(err)
+    }
+    try {
+        
         // Call fUpdateTodos and replace latest todo data in USER_STORE
         const updatedTodos = await fUpdateTodos(USER_STORE.todoLists, USER_STORE.selectedListId, { ...getCredentials() })
         USER_STORE = { ...USER_STORE, ...updatedTodos }

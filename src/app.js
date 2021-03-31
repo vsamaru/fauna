@@ -1,4 +1,5 @@
-
+import fetch from 'isomorphic-unfetch'
+import './co'
 import { 
     fSignup,
     fLogin,
@@ -348,6 +349,7 @@ async function formsHandler(e) {
                     injectLoaderMsg('Loading your dashboard...')
 
                     // Call faunadb fGetUserData and set USER_STORE
+                    console.warn({ ...liCredentials })
                     const liUserData = await fGetUserData({ ...liCredentials })
                     USER_STORE = { ...liUserData }
 
@@ -795,6 +797,8 @@ function clearElement(elem) {
 // Save todos data to FaunaDB
 async function saveTodos() {
     try {
+        console.warn(USER_STORE)
+        console.warn({ ...getCredentials() })
         // Call fUpdateTodos and replace latest todo data in USER_STORE
         const updatedTodos = await fUpdateTodos(USER_STORE.todoLists, USER_STORE.selectedListId, { ...getCredentials() })
         USER_STORE = { ...USER_STORE, ...updatedTodos }

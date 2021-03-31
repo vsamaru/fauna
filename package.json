@@ -5,14 +5,12 @@
   "author": "LuVaGu",
   "description": "todos-js-snowpack-tailwind",
   "main": "src/app.js",
-
   "scripts": {
     "start": "snowpack dev --polyfill-node",
     "build": "snowpack build --polyfill-node",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-
   "devDependencies": {
     "@snowpack/plugin-babel": "^2.1.6",
     "@snowpack/plugin-postcss": "^1.1.0",
@@ -25,6 +23,8 @@
     "tailwindcss": "^2.0.3"
   },
   "dependencies": {
-    "faunadb": "^4.1.1"
+    "esm": "^3.2.25",
+    "faunadb": "^4.1.1",
+    "isomorphic-unfetch": "^3.1.0"
   }
 }

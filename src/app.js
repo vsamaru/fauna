@@ -796,9 +796,17 @@ function clearElement(elem) {
 
 // Save todos data to FaunaDB
 async function saveTodos() {
+        try{
+        console.log(USER_STORE)
+        console.log({ ...getCredentials() })
+
+    } catch(err){
+        console.error(err)
+    }
     try{
-        console.warn(USER_STORE)
-        console.warn({ ...getCredentials() })
+        console.log(USER_STORE)
+        console.log({ ...getCredentials() })
+    
     } catch(err){
         console.error(err)
     }

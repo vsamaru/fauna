@@ -349,7 +349,7 @@ async function formsHandler(e) {
                     injectLoaderMsg('Loading your dashboard...')
 
                     // Call faunadb fGetUserData and set USER_STORE
-                    console.warn({ ...liCredentials })
+                  //  console.warn({ ...liCredentials })
                     const liUserData = await fGetUserData({ ...liCredentials })
                     USER_STORE = { ...liUserData }
 
@@ -797,8 +797,8 @@ function clearElement(elem) {
 // Save todos data to FaunaDB
 async function saveTodos() {
         try{
-        console.log(USER_STORE)
-        console.log({ ...getCredentials() })
+        console.warn(USER_STORE)
+        console.warn({ ...getCredentials() })
 
     } catch(err){
         console.error(err)
@@ -910,6 +910,8 @@ function checkAlarmsAndNotify() {
 
                 if (!overdue && (dateNow > parsedDate)) {
                     if (!notified && notificationsAllowed()) {
+console.warn("ALARM")
+console.log("ALARM")                        
                         new Notification(`ToDo's JS`, { body: text, icon: img })
                         task.notified = true
                     }
